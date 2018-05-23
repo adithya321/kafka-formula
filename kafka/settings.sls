@@ -13,6 +13,8 @@
 {%- set broker_id = gc.get('broker_id', pc.get('broker_id', None)) %}
 {%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path', 'kafka')) %}
 
+{%- set connection_string = gc.get('connection_string', pc.get('connection_string', 'localhost:2181')) %}
+
 {%- set restart_on_config_change = pc.get('restart_on_config_change', False) %}
 
 {%- set config_properties = gc.get('properties', pc.get('properties', {})) %}
@@ -25,6 +27,7 @@
   'heap_max_size'            : heap_max_size,
   'broker_id'                : broker_id,
   'chroot_path'              : chroot_path,
+  'connection_string'        : connection_string,
   'restart_on_config_change' : restart_on_config_change,
   'config_properties'        : config_properties,
 }) %}
