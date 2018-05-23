@@ -1,4 +1,3 @@
-{%- from 'zookeeper/settings.sls' import zk with context %}
 {%- from 'kafka/settings.sls' import kafka with context %}
 
 include:
@@ -15,7 +14,7 @@ kafka-config:
     - source: salt://kafka/files/server.properties
     - template: jinja
     - context:
-      zookeepers: {{ zk.connection_string }}
+      zookeepers: {{ kafka.connection_string }}
     - require:
       - pkg: confluent-kafka-2.11
 
