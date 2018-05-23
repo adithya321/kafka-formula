@@ -11,9 +11,11 @@ kafka-pkg-setup:
     - refresh: True
 
 kafka-user:
+  group.present:
+    - name: kafka
   user.present:
     - name: kafka
-    - shell: /bin/false
+    - shell: /bin/bash
     - gid_from_name: True
     - createhome: False
     - system: True
